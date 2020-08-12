@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 
 namespace Iterator
 {
@@ -15,7 +16,7 @@ namespace Iterator
 
     public class Book
     {
-        string name{ get; set; }
+        public string name{ get; set; }
         public Book(string name)
         {
             this.name = name;
@@ -49,7 +50,7 @@ namespace Iterator
 
         public ImyIterator myIterator()
         {
-            throw new NotImplementedException();
+            return new BookShelfIterator(this);
         }
     }
 
@@ -86,6 +87,17 @@ namespace Iterator
     {
         static void Main(string[] args)
         {
+            var bookShelf = new BookShelf(4);
+            bookShelf.appendBook(new Book("Around ther World in 80"));
+            bookShelf.appendBook(new Book("Bible"));
+            bookShelf.appendBook(new Book("Cinderella"));
+            bookShelf.appendBook(new Book("Doddy-Long-Legs"));
+            ImyIterator it = bookShelf.myIterator();
+            while (it.hasNext())
+            {
+                Book book = (Book)it.next();
+                Console.WriteLine(book.name);
+            }
         }
     }
 }
