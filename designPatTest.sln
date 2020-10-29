@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Iterator", "Iterator\Iterat
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Adapter", "Adapter1\Adapter.csproj", "{E0D860B1-EDCF-4BC3-896C-B5FF45112715}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TemplateMethod", "TemplateMethod\TemplateMethod.csproj", "{023FEE4F-8417-4998-93C3-11AE5C215360}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TemplateMethod", "TemplateMethod\TemplateMethod.csproj", "{023FEE4F-8417-4998-93C3-11AE5C215360}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FactoryMethod", "FactoryMethod\FactoryMethod.csproj", "{D11F60E1-AF1D-4867-93D3-BE1AF7A8C883}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{023FEE4F-8417-4998-93C3-11AE5C215360}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{023FEE4F-8417-4998-93C3-11AE5C215360}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{023FEE4F-8417-4998-93C3-11AE5C215360}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D11F60E1-AF1D-4867-93D3-BE1AF7A8C883}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D11F60E1-AF1D-4867-93D3-BE1AF7A8C883}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D11F60E1-AF1D-4867-93D3-BE1AF7A8C883}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D11F60E1-AF1D-4867-93D3-BE1AF7A8C883}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
