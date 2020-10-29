@@ -20,10 +20,23 @@ namespace Singleton
 
     public class TicketMaker
     {
-        private int ticket = 1000;
+        private int ticket;
+
+        private static TicketMaker ticketmaker = new TicketMaker();
+
+        private TicketMaker()
+        {
+            this.ticket = 1000;
+        }
+
         public int getNextTicketNumber()
         {
             return ticket++;
+        }
+
+        public static TicketMaker getInstance()
+        {
+            return ticketmaker;
         }
     }
 
@@ -44,8 +57,8 @@ namespace Singleton
             }
 
 
-            TicketMaker t1 = new TicketMaker();
-            TicketMaker t2 = new TicketMaker();
+            TicketMaker t1 = TicketMaker.getInstance();
+            TicketMaker t2 = TicketMaker.getInstance();
             for(int i=0;i<10;i++)
             {
                 Console.WriteLine(t1.getNextTicketNumber());
