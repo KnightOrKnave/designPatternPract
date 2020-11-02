@@ -19,7 +19,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Prototype", "Prototype\Prot
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Builder", "Builder\Builder.csproj", "{C1F845E7-91D5-4D6A-B55D-C9C697E2CF62}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AbstructFactory", "AbstructFactory\AbstructFactory.csproj", "{0C6C4857-9B99-4C76-9118-B4B82FD057BC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AbstructFactory", "AbstructFactory\AbstructFactory.csproj", "{0C6C4857-9B99-4C76-9118-B4B82FD057BC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bridge", "Bridge\Bridge.csproj", "{1AC4BDD5-8A2F-4218-A484-08889EACDB9A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +65,10 @@ Global
 		{0C6C4857-9B99-4C76-9118-B4B82FD057BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0C6C4857-9B99-4C76-9118-B4B82FD057BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0C6C4857-9B99-4C76-9118-B4B82FD057BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1AC4BDD5-8A2F-4218-A484-08889EACDB9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1AC4BDD5-8A2F-4218-A484-08889EACDB9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1AC4BDD5-8A2F-4218-A484-08889EACDB9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1AC4BDD5-8A2F-4218-A484-08889EACDB9A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
