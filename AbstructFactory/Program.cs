@@ -49,6 +49,7 @@ namespace AbstructFactory
         {
             this.title = title;
             this.autor = autor;
+            this.content = new List<Item>();
         }
         public void add(Item item)
         {
@@ -61,6 +62,7 @@ namespace AbstructFactory
             {
                 string s="";
                 s += this.makeHTML();
+                Console.WriteLine(s);
             }catch(Exception e)
             {
 
@@ -111,7 +113,7 @@ namespace AbstructFactory
     {
         static void Main(string[] args)
         {
-            Factory factory = Factory.GetFactory("ListFactory");
+            Factory factory = Factory.GetFactory("AbstructFactory.ListFactory");
             Link asahi = factory.createLink("aaaa", "http://aaaa.com/");
             Link yomiuri = factory.createLink("yyyy", "http://yyyy.com/");
             Link uyahoo = factory.createLink("yahoo", "http://yahoo.com/");
