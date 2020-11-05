@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Strategy
 {
-    class Hand
+    public class Hand
     {
         public static int HANDVALUE_GUU = 1;
         public static int HANDVALUE_CHO = 2;
@@ -14,7 +14,7 @@ namespace Strategy
             new Hand(HANDVALUE_GUU),
             new Hand(HANDVALUE_CHO),
             new Hand(HANDVALUE_PAA)
-        }
+        };
         private static string[] name = { "グー", "チョキ", "パー" };
         private int handvalue;
 
