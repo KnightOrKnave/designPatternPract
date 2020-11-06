@@ -145,7 +145,7 @@ namespace Strategy
             int seed2 = r.Next(1000);
 
             Player player1 = new Player("player1", new WinningStrategy(seed1));
-            Player player2 = new Player("player2", new ProbStrategy(seed2));
+            Player player2 = new Player("player2", new WinningStrategy(seed2));
 
             for(int i=0;i<10000;i++)
             {
@@ -153,13 +153,13 @@ namespace Strategy
                 Hand nexthand2 = player2.nextHand();
                 if(nexthand1.isStrongerThan(nexthand2))
                 {
-                    Console.WriteLine($"Winner:{ player1 }");
+                    Console.WriteLine($"Winner:{ player1.toString() }");
                     player1.win();
                     player2.lose();
                 }
                 else if(nexthand2.isStrongerThan(nexthand1))
                 {
-                    Console.WriteLine($"Winner:{ player2 }");
+                    Console.WriteLine($"Winner:{ player2.toString() }");
                     player2.win();
                     player1.lose();
                 }
