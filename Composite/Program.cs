@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.InteropServices.ComTypes;
 
@@ -17,7 +18,7 @@ namespace Composite
         {
             printList("");
         }
-        protected extern void printList(string prefix);
+        protected abstract void printList(string prefix);
         public string tostring()
         {
             return $"{getName()}({getSize()})";
@@ -53,7 +54,7 @@ namespace Composite
     public class Directory : Entry
     {
         private string name;
-        private IEnumerable<Entry> List;
+        private List<Entry> List;
         
         public Directory(string name)
         {
@@ -75,12 +76,18 @@ namespace Composite
             return size;
         }
 
+        public Entry add(Entry entry)
+        {
+            List.Add(entry);
+            return this;
+        }
+
         protected override void printList(string prefix)
         {
             Console.WriteLine($"{prefix}/{this}");
-            foreach(Entry e in List)
+            foreach(var e in List)
             {
-                e.printList($"{prefix}/{name}");
+                Console.WriteLine("");
             }
         }
     }
@@ -90,7 +97,15 @@ namespace Composite
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Directory rootdir = new Directory("root");
+            Directory bindir = new Directory("bin");
+            Directory tmpdir = new Directory("tmp");
+
+            rootdir.add(bindir);
+            rootdir.add(tmpdir);
+            bindir.add(new File("vi", 1000));
+            bindir.add(new File("latex", 1000));
+            rootdir.printList();
         }
     }
 }
