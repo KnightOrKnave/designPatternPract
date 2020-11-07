@@ -6,10 +6,29 @@ using System.Runtime.InteropServices.ComTypes;
 namespace Composite
 {
 
-    public abstract class Entry
+    //public abstract class Entry
+    //{
+    //    public abstract string getName();
+    //    public abstract int getSize();
+    //    public Entry add(Entry entry)
+    //    {
+    //        throw new Exception();
+    //    }
+    //    public void printList()
+    //    {
+    //        printList("");
+    //    }
+    //    protected abstract void printList(string prefix);
+    //    public string tostring()
+    //    {
+    //        return $"{getName()}({getSize()})";
+    //    }
+    //}
+
+    public interface Entry
     {
-        public abstract string getName();
-        public abstract int getSize();
+        public string getName();
+        public int getSize();
         public Entry add(Entry entry)
         {
             throw new Exception();
@@ -18,11 +37,12 @@ namespace Composite
         {
             printList("");
         }
-        protected abstract void printList(string prefix);
+        public void printList(string prefix) { }
         public string tostring()
         {
             return $"{getName()}({getSize()})";
         }
+
     }
 
     public class File : Entry
@@ -35,19 +55,23 @@ namespace Composite
             this.name = name;
             this.size = size;
         }
-        public override string getName()
+        public string getName()
         {
             return this.name;
         }
 
-        public override int getSize()
+        public int getSize()
         {
             return this.size;
         }
-
-        protected override void printList(string prefix)
+        public string tostring()
         {
-            Console.WriteLine($"{prefix}/{this.tostring()}");
+            return $"{getName()}({getSize()})";
+        }
+
+        public void printList(string prefix)
+        {
+            Console.WriteLine($"{prefix}/{tostring()}");
         }
     }
 
@@ -61,12 +85,12 @@ namespace Composite
             this.name = name;
             List = new List<Entry>();
         }
-        public override string getName()
+        public string getName()
         {
             return name;
         }
 
-        public override int getSize()
+        public int getSize()
         {
             int size = 0;
             foreach(var e in List)
@@ -81,14 +105,23 @@ namespace Composite
             List.Add(entry);
             return this;
         }
-
-        protected override void printList(string prefix)
+        public string tostring()
         {
-            Console.WriteLine($"{prefix}/{this}");
+            return $"{getName()}({getSize()})";
+        }
+        public void printList(string prefix)
+        {
+            Console.WriteLine($"{prefix}/{tostring()}");
             foreach(var e in List)
             {
-                Console.WriteLine("");
+                e.printList($"{prefix}/{name}");
             }
+        }
+
+        //実装しないといけない？
+        public void printList()
+        {
+            printList("");
         }
     }
 
