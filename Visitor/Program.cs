@@ -35,6 +35,8 @@ namespace Visitor
         {
             return $"{getName()}({getSize()})";
         }
+
+        public abstract void accept(Visitor v);
     }
 
     public class MyFile : Entry
@@ -58,7 +60,7 @@ namespace Visitor
             return size;
         }
 
-        public void accept(Visitor v)
+        public override void accept(Visitor v)
         {
             v.visit(this);
         }
@@ -100,7 +102,7 @@ namespace Visitor
             return ArrayList;
         }
 
-        public void accept (Visitor v)
+        public override void accept (Visitor v)
         {
             v.visit(this);
         }
