@@ -25,7 +25,7 @@ namespace Memento
             _fruits.Add(fruit);
         }
 
-        IEnumerable<string>GetFruits()
+        IEnumerable<string> GetFruits()
         {
             return _fruits;
         }
@@ -54,7 +54,7 @@ namespace Memento
 
         public void Bet()
         {
-            int dice = _random.Next(1, 6);
+            int dice = _random.Next(1, 7);//max valueは未満
             if (dice == 1)
             {
                 _money += 100;
@@ -65,7 +65,7 @@ namespace Memento
                 _money /= 2;
                 Console.WriteLine("所持金が半分になりました");
             }
-            else if(dice==6)
+            else if (dice == 6)
             {
                 string f = GetFruit();
                 Console.WriteLine($"フルーツ({f})をもらいました");
@@ -79,7 +79,7 @@ namespace Memento
         public Memento CreateMemento()
         {
             Memento m = new Memento(_money);
-            foreach(var f in _fruits)
+            foreach (var f in _fruits)
             {
                 if (f.StartsWith("おいしい"))
                 {
@@ -115,7 +115,27 @@ namespace Memento
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Gamer gamer = new Gamer(100);
+            Memento memento = gamer.CreateMemento();
+            for (int i = 0; i < 100; i++)
+            {
+                Console.WriteLine($"=== {i}");
+                Console.WriteLine($"現状:{gamer}");
+
+                gamer.Bet();
+                Console.WriteLine($"所持金は{gamer.GetMoney()}になりました");
+
+                if (gamer.GetMoney() > memento.GetMoney())
+                {
+                    Console.WriteLine("保存");
+                    memento = gamer.CreateMemento();
+                }
+                if (gamer.GetMoney() < memento.GetMoney() / 2)
+                {
+                    Console.WriteLine("戻す");
+                    gamer.RestoreMemento(memento);
+                }
+            }
         }
     }
 }
