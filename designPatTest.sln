@@ -37,7 +37,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Facade", "Facade\Facade.csp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Memento", "Memento\Memento.csproj", "{5FE7E1B8-330B-4230-AB45-3B98A0E84032}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "State", "State\State.csproj", "{4BBFD077-C1C5-403A-ABBD-3A03E6F3D45E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "State", "State\State.csproj", "{4BBFD077-C1C5-403A-ABBD-3A03E6F3D45E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Flyweight", "Flyweight\Flyweight.csproj", "{1AC83115-F007-400A-B57A-9081FA2F5095}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -117,6 +119,10 @@ Global
 		{4BBFD077-C1C5-403A-ABBD-3A03E6F3D45E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4BBFD077-C1C5-403A-ABBD-3A03E6F3D45E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4BBFD077-C1C5-403A-ABBD-3A03E6F3D45E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1AC83115-F007-400A-B57A-9081FA2F5095}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1AC83115-F007-400A-B57A-9081FA2F5095}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1AC83115-F007-400A-B57A-9081FA2F5095}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1AC83115-F007-400A-B57A-9081FA2F5095}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
