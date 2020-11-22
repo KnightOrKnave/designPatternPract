@@ -22,7 +22,6 @@ namespace Interpriter
             _commandListNode = new CommandLineNode();
             _commandListNode.parse(context);
         }
-
         public override string ToString()
         {
             return $"[program {_commandListNode}]";
@@ -53,6 +52,16 @@ namespace Interpriter
                     _list.Add(commandNode);
                 }
             }
+        }
+
+        public override string ToString()
+        {
+            string s = "";
+            foreach (var np in _list)
+            {
+                s += $" {np}";
+            }
+            return $"[{s}]";
         }
     }
 
@@ -108,11 +117,11 @@ namespace Interpriter
         public override void parse(Context context)
         {
             _name = context.CurrentToken();
-            context.SkipToken(_name);
-            if (_validCommands.Contains(_name))
+            if (!_validCommands.Contains(_name))
             {
                 throw new ParseException($"{_name} is undefined command");
             }
+            context.SkipToken(_name);
         }
 
         public override string ToString()
@@ -149,7 +158,14 @@ namespace Interpriter
             _pos = 0;
         }
 
-        public void SkipToken(string str) { }
+        public void SkipToken(string token)
+        {
+            if (token != _tokens[_pos])
+            {
+                throw new ParseException($"skip token not match {token}:{_tokens[_pos]}");
+            }
+            NextToken();
+        }
         public string CurrentToken()
         {
             return _tokens[_pos];
